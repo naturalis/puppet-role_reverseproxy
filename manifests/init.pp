@@ -210,11 +210,11 @@ class role_reverseproxy {
   ### NEDERLANDSESOORTEN
   nginx::resource::upstream { '162_13_138_110': members => ['162.13.138.110:80'], }
   nginx::resource::upstream { '162_13_138_109': members => ['162.13.138.109:80'], }
-  nginx::resource::vhost { 'nederlandsesoorten.nl': proxy => 'http://162_13_138_110', }
+  nginx::resource::vhost { 'nederlandsesoorten.nl www.nederlandsesoorten.nl': proxy => 'http://162_13_138_110', }
 
   nginx::resource::location{ '162_13_138_109_linneaus_ng':
     location => '/linneaus_ng',
-    vhost    => 'nederlandsesoorten.nl',
+    vhost    => 'nederlandsesoorten.nl www.nederlandsesoorten.nl',
     proxy    => 'http://162_13_138_109/linneaus_ng'
   }
 
