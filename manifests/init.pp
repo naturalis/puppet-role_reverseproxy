@@ -66,7 +66,7 @@ class role_reverseproxy {
 
   #### CATALOGUE OF LIFE
 
-  nginx::resource::vhost {'www.catalogueoflife.... catalogueoflife....':
+  nginx::resource::vhost {'www.catalogueoflife.* catalogueoflife.*':
     proxy    => 'http://134_213_57_40'
   }
 
