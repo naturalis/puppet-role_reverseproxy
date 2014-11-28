@@ -175,8 +175,19 @@ class role_reverseproxy {
   nginx::resource::vhost { 'www.natuurwidget.nl': proxy => 'http://etivm1_naturalis_nl', }
   nginx::resource::vhost { 'seedlists.naturalis.nl': proxy => 'http://etivm1_naturalis_nl', }
 
-
-
+  ### ETIVM2
+  nginx::resource::upstream { 'etivm2_naturalis_nl': members => [' 10.21.1.150:80'], }
+  nginx::resource::vhost { 'etivm2.naturalis.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'bioportaal.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'www.bioportaal.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'wbd.etibioinformatics.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'species-identification.eu': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'www.species-identification.eu': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'species-identification.org': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'www.species-identification.org': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'soortenbank.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'www.soortenbank.nl': proxy => 'http://etivm2_naturalis_nl', }
+  nginx::resource::vhost { 'prod.etibioinformatics.nl': proxy => 'http://etivm2_naturalis_nl', }
 
 
 
