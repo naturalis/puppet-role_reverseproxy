@@ -39,29 +39,39 @@ class role_reverseproxy {
 
   class {'nginx':}
 
+
+  #### OPENSTACK
+  nginx::resource::vhost { 'openstack.naturalis.nl':
+    proxy => 'http://openstack_naturalis_nl',
+  }
+
   nginx::resource::upstream { 'openstack_naturalis_nl':
     members => [' 10.61.2.89:80'],
   }
 
-  nginx::resource::vhost { 'openstack.naturalis.nl':
-    proxy => 'http://openstack_naturalis_nl',
+  #### MEDIALIB OAI-PMH
+  nginx::resource::vhost { 'webservices.naturalis.nl':
+    proxy    => 'http://webservices_medialib_oai-pmh',
   }
 
   nginx::resource::upstream { 'webservices_medialib_oai-pmh':
     members => ['10.61.2.58:80',],
   }
 
-  nginx::resource::vhost { 'webservices.naturalis.nl':
-    proxy    => 'http://webservices_medialib_oai-pmh',
-    #www_root => '/var/www'
-
-    # proxy => 'http://nba_v1_wildfly_app/nl.naturalis.nda.service.rest/',
-  }
-
   nginx::resource::location{ 'medialib_oaipmh':
     location => 'webservices.naturalis.nl/medialib/oai-pmh',
     vhost    => 'webservices.naturalis.nl',
     proxy    => 'http://webservices_medialib_oai-pmh/medialib/oai-pmh'
+  }
+
+  #### CATALOGUE OF LIFE
+
+  nginx::resource::vhost {'www.catalogueoflife.org catalogueoflife.org':
+    proxy    => 'http://134_213_57_40'
+  }
+
+  nginx::resource::upstream {'134_213_57_40':
+    members => ['134.213.57.40:80'],
   }
 
 
