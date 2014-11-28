@@ -126,10 +126,16 @@ class role_reverseproxy {
     proxy    => 'http://46_149_28_153/annual-checklist'
   }
 
-  nginx::resource::location{ 'webservices_46_149_20_81':
-    location => '/',
+  nginx::resource::location{ 'webservices_46_149_20_81_col':
+    location => '/col',
     vhost    => 'webservices.catalogueoflife.*',
-    proxy    => 'http://46_149_20_81/'
+    proxy    => 'http://46_149_20_81/col'
+  }
+
+  nginx::resource::location{ 'webservices_46_149_20_81_col':
+    location => '/webservices',
+    vhost    => 'webservices.catalogueoflife.*',
+    proxy    => 'http://46_149_20_81/webservices'
   }
 
 
