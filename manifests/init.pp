@@ -141,9 +141,13 @@ class role_reverseproxy {
   nginx::resource::vhost { 'openup.naturalis.nl': proxy => 'http://openup_naturalis_nl', }
   nginx::resource::upstream { 'openup_naturalis_nl': members => [' 10.21.1.103:80'], }
 
-  #### OPENUP
+  #### MEDIALIB
   nginx::resource::vhost { 'medialib.naturalis.nl': proxy => 'http://medialib_naturalis_nl', }
   nginx::resource::upstream { 'medialib_naturalis_nl': members => [' 10.61.2.56:80'], }
+
+  #### ICTSUPPORT
+  nginx::resource::vhost { 'ictsupport.naturalis.nl servicedesk.naturalis.nl': proxy => 'http://topdesk', }
+  nginx::resource::upstream { 'topdesk': members => [' 10.21.1.142:80'], }
 
 
 
