@@ -66,9 +66,9 @@ class role_reverseproxy {
   nginx::resource::vhost {'www.catalogueoflife.* catalogueoflife.*': proxy    => 'http://134_213_57_40', }
 
   nginx::resource::location{ '46_149_29_25_testcol':
-    location => '~/(?<after>)$',
+    location => '~/test*$',
     vhost    => 'www.catalogueoflife.* catalogueoflife.*',
-    proxy    => 'http://46_149_29_25/$after'
+    proxy    => 'http://46_149_29_25/test'
   }
 
   nginx::resource::location{ '46_149_29_25_piping':
