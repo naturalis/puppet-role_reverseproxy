@@ -89,6 +89,30 @@ class role_reverseproxy {
     proxy    => 'http://46_149_20_81/DCA_Export'
   }
 
+  nginx::resource::location{ '46_149_20_81_listmatching':
+    location => '/listmatching',
+    vhost    => 'www.catalogueoflife.* catalogueoflife.*',
+    proxy    => 'http://46_149_20_81/DCA_Export'
+  }
+
+  nginx::resource::location{ '46_149_20_81_webservices':
+    location => '/webservices',
+    vhost    => 'www.catalogueoflife.* catalogueoflife.*',
+    proxy    => 'http://46_149_20_81/DCA_Export'
+  }
+
+  nginx::resource::location{ '46_149_20_81_col':
+    location => '/col',
+    vhost    => 'www.catalogueoflife.* catalogueoflife.*',
+    proxy    => 'http://46_149_20_81/DCA_Export'
+  }
+
+  nginx::resource::location{ '46_149_20_81_dynamic-checklist':
+    location => '/dynamic-checklist',
+    vhost    => 'www.catalogueoflife.* catalogueoflife.*',
+    proxy    => 'http://46_149_20_81/DCA_Export'
+  }
+
   # nginx::resource::location{ '46_149_28_153_DCA_Export':
   #   location => '/annual-checklist/',
   #   vhost    => 'www.catalogueoflife.* catalogueoflife.*',
