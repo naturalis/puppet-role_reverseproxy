@@ -114,7 +114,7 @@ class role_reverseproxy {
   }
 
   nginx::resource::location{ '46_149_28_153_annual-checklist':
-    location => '/annual-checklist/',
+    location => '/annual-checklist',
     vhost    => 'www.catalogueoflife.* catalogueoflife.*',
     proxy    => 'http://46_149_28_153/annual-checklist'
   }
