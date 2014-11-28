@@ -42,12 +42,10 @@ class role_reverseproxy {
 
   #### OPENSTACK
   nginx::resource::vhost { 'openstack.naturalis.nl': proxy => 'http://openstack_naturalis_nl', }
-
   nginx::resource::upstream { 'openstack_naturalis_nl': members => [' 10.61.2.89:80'], }
 
   #### MEDIALIB OAI-PMH
   nginx::resource::vhost { 'webservices.naturalis.nl': proxy    => 'http://webservices_medialib_oai-pmh', }
-
   nginx::resource::upstream { 'webservices_medialib_oai-pmh': members => ['10.61.2.58:80',], }
 
   nginx::resource::location{ 'medialib_oaipmh':
@@ -138,6 +136,10 @@ class role_reverseproxy {
     proxy    => 'http://46_149_20_81/webservices'
   }
 
+
+  #### OPENUP
+  nginx::resource::vhost { 'openup.naturalis.nl': proxy => 'http://openup_naturalis_nl', }
+  nginx::resource::upstream { 'openup_naturalis_nl': members => [' 10.21.1.103:80'], }
 
 
 
