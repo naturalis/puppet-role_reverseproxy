@@ -141,6 +141,10 @@ class role_reverseproxy {
   nginx::resource::vhost { 'openup.naturalis.nl': proxy => 'http://openup_naturalis_nl', }
   nginx::resource::upstream { 'openup_naturalis_nl': members => [' 10.21.1.103:80'], }
 
+  #### OPENUP
+  nginx::resource::vhost { 'medialib.naturalis.nl': proxy => 'http://medialib_naturalis_nl', }
+  nginx::resource::upstream { 'medialib_naturalis_nl': members => [' 10.61.2.56:80'], }
+
 
 
   # nginx::resource::location{ '46_149_28_153_DCA_Export':
