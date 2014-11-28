@@ -44,7 +44,7 @@ class role_reverseproxy {
   }
 
   nginx::resource::vhost { 'openstack.naturalis.nl':
-    proxy => 'openstack_naturalis_nl',
+    proxy => 'http://openstack_naturalis_nl',
   }
 
 
