@@ -47,5 +47,19 @@ class role_reverseproxy {
     proxy => 'http://openstack_naturalis_nl',
   }
 
+  nginx::resource::upstream { 'webservices_medialib_oai-pmh':
+    members => ['10.61.2.58:80',],
+  }
+
+  nginx::resource::vhost { 'webservices.naturalis.nl':
+    proxy => 'webservices_medialib_oai-pmh',
+    # proxy => 'http://nba_v1_wildfly_app/nl.naturalis.nda.service.rest/',
+  }
+
+  nginx::resource::location{ 'medialib_oaipmh':
+    location => 'webservices.naturalis.nl/medialib/oai-pmh',
+    vhost    => 'webservices.naturalis.nl'
+  }
+
 
 }
