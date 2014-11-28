@@ -37,5 +37,15 @@
 #
 class role_reverseproxy {
 
+  class {'nginx':}
+
+  nginx::resource::upstream { 'openstack_naturalis_nl':
+    members => [' 10.61.2.89:80'],
+  }
+
+  nginx::resource::vhost { 'openstack.naturalis.nl':
+    proxy => 'openstack_naturalis_nl',
+  }
+
 
 }
