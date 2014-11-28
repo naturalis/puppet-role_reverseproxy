@@ -52,7 +52,9 @@ class role_reverseproxy {
   }
 
   nginx::resource::vhost { 'webservices.naturalis.nl':
-    proxy => 'http://webservices_medialib_oai-pmh',
+    proxy    => 'http://webservices_medialib_oai-pmh',
+    www_root => '/var/www'
+
     # proxy => 'http://nba_v1_wildfly_app/nl.naturalis.nda.service.rest/',
   }
 
