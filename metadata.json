@@ -1,0 +1,14 @@
+{
+  "name": "naturalis-role_reverseproxy",
+  "version": "0.1.0",
+  "author": "naturalis",
+  "summary": "Puppet module for a reverse_proxy",
+  "license": "Apache 2.0",
+  "source": "https://github.com/naturalis/puppet-role_reverseproxy.git",
+  "project_page": "https://github.com/naturalis/puppet-role_reverseproxy",
+  "issues_url": "https://github.com/naturalis/puppet-role_reverseproxy/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
