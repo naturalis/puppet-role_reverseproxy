@@ -189,6 +189,23 @@ class role_reverseproxy {
   nginx::resource::vhost { 'www.soortenbank.nl': proxy => 'http://etivm2_naturalis_nl', }
   nginx::resource::vhost { 'prod.etibioinformatics.nl': proxy => 'http://etivm2_naturalis_nl', }
 
+  ### TEST MEDIALIB
+  nginx::resource::upstream { 'testmedialib_naturalis_nl': members => [' 10.21.1.153:80'], }
+  nginx::resource::vhost { 'testmedialib.naturalis.nl': proxy => 'http://testmedialib_naturalis_nl', }
+  nginx::resource::vhost { 'testwebservices.naturalis.nl': proxy => 'http://testmedialib_naturalis_nl', }
+
+
+  ### DIERENDETERMINATIE #### WERKT NIET
+  # nginx::resource::upstream { 'dierendeterminatie_cloud_naturalis_nl': members => ['10.40.1.26:80']}
+  # nginx::resource::vhost { 'dierendeterminatie.cloud.naturalis.nl': proxy => 'http://dierendeterminatie_cloud_naturalis_nl', }
+
+
+  ### SP2000
+  nginx::resource::upstream { '46_149_29_20': members => [' 46.149.29.20:80'], }
+  nginx::resource::vhost { 'www.sp2000.* sp2000.* ': proxy => 'http://46_149_29_20', }
+  nginx::resource::vhost { 'www.sp2000europa.* sp2000europa.* ': proxy => 'http://46_149_29_20', }
+  nginx::resource::vhost { 'www.species2000.* species2000.* ': proxy => 'http://46_149_29_20', }
+  nginx::resource::vhost { 'documents.species2000.*': proxy => 'http://46_149_29_20', }
 
 
 
