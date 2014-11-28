@@ -44,16 +44,6 @@ class role_reverseproxy {
   nginx::resource::vhost { 'openstack.naturalis.nl': proxy => 'http://openstack_naturalis_nl', }
   nginx::resource::upstream { 'openstack_naturalis_nl': members => [' 10.61.2.89:80'], }
 
-  #### MEDIALIB OAI-PMH
-  nginx::resource::vhost { 'webservices.naturalis.nl': proxy    => 'http://webservices_medialib_oai-pmh', }
-  nginx::resource::upstream { 'webservices_medialib_oai-pmh': members => ['10.61.2.58:80',], }
-
-  nginx::resource::location{ 'medialib_oaipmh':
-    location => 'webservices.naturalis.nl/medialib/oai-pmh',
-    vhost    => 'webservices.naturalis.nl',
-    proxy    => 'http://webservices_medialib_oai-pmh/medialib/oai-pmh'
-  }
-
   #### CATALOGUE OF LIFE
 
   nginx::resource::upstream {'134_213_57_40':  members => ['134.213.57.40:80'], }
@@ -145,9 +135,49 @@ class role_reverseproxy {
   nginx::resource::vhost { 'medialib.naturalis.nl': proxy => 'http://medialib_naturalis_nl', }
   nginx::resource::upstream { 'medialib_naturalis_nl': members => [' 10.61.2.56:80'], }
 
-  #### ICTSUPPORT
+  #### MEDIALIB OAI-PMH
+  nginx::resource::vhost { 'webservices.naturalis.nl': proxy    => 'http://webservices_medialib_oai-pmh', }
+  nginx::resource::upstream { 'webservices_medialib_oai-pmh': members => ['10.61.2.58:80',], }
+
+  nginx::resource::location{ 'medialib_oaipmh':
+    location => 'webservices.naturalis.nl/medialib/oai-pmh',
+    vhost    => 'webservices.naturalis.nl',
+    proxy    => 'http://webservices_medialib_oai-pmh/medialib/oai-pmh'
+  }
+
+  #### TOPDESK
   nginx::resource::vhost { 'ictsupport.naturalis.nl servicedesk.naturalis.nl': proxy => 'http://topdesk', }
   nginx::resource::upstream { 'topdesk': members => [' 10.21.1.142:80'], }
+
+  ### ETIVM1
+  nginx::resource::upstream { 'etivm1_naturalis_nl': members => [' 10.21.1.149:80'], }
+  nginx::resource::vhost { 'etivm1.naturalis.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'appdata.naturalis.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'determineren.nederlandsesoorten.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'determinatie.nederlandsesoorten.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'identify.naturalis.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'widget.nederlandsesoorten.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'nlbif.etibioinformatics.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'nlbif.eti.uva.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.eti.uva.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'eti.uva.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.uitgestorvenvogels.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'uitgestorvenvogels.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'etibioinformatics.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.etibioinformatics.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.bio-wie.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.ugabif.go.ug': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'ugabif.go.ug': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'aries.etibioinformatics.nl': proxy => 'http://etivm1_naturalis_nl',}
+  nginx::resource::vhost { 'walvisstrandingen.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.walvisstrandingen.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'natuurwidget.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'www.natuurwidget.nl': proxy => 'http://etivm1_naturalis_nl', }
+  nginx::resource::vhost { 'seedlists.naturalis.nl': proxy => 'http://etivm1_naturalis_nl', }
+
+
+
+
 
 
 
