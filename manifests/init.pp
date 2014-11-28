@@ -61,6 +61,7 @@ class role_reverseproxy {
   nginx::resource::location{ 'medialib_oaipmh':
     location => 'webservices.naturalis.nl/medialib/oai-pmh',
     vhost    => 'webservices.naturalis.nl'
+    proxy    => 'http://webservices_medialib_oai-pmh'
   }
 
 
