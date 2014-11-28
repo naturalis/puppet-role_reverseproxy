@@ -212,6 +212,11 @@ class role_reverseproxy {
   nginx::resource::upstream { '162_13_138_109': members => ['162.13.138.109:80'], }
   nginx::resource::vhost { 'nederlandsesoorten.nl': proxy => 'http://162_13_138_110', }
 
+  nginx::resource::location{ '162_13_138_109_linneaus_ng':
+    location => '/linneaus_ng',
+    vhost    => 'nederlandsesoorten.nl',
+    proxy    => 'http://162_13_138_109/linneaus_ng'
+  }
 
   # nginx::resource::location{ '46_149_28_153_DCA_Export':
   #   location => '/annual-checklist/',
