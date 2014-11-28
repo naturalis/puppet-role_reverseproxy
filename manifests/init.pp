@@ -207,6 +207,10 @@ class role_reverseproxy {
   nginx::resource::vhost { 'www.species2000.* species2000.* ': proxy => 'http://46_149_29_20', }
   nginx::resource::vhost { 'documents.species2000.*': proxy => 'http://46_149_29_20', }
 
+  ### NEDERLANDSESOORTEN
+  nginx::resource::upstream { '162_13_138_110': members => ['162.13.138.110:80'], }
+  nginx::resource::upstream { '162_13_138_109': members => ['162.13.138.109:80'], }
+  nginx::resource::vhost { 'nederlandsesoorten.nl': proxy => 'http://162_13_138_110', }
 
 
   # nginx::resource::location{ '46_149_28_153_DCA_Export':
