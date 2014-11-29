@@ -122,7 +122,7 @@ class role_reverseproxy {
 
   nginx::resource::location{ 'webservices_46_149_20_81_webservices':
     location => '/webservice',
-    vhost    => 'webservices.catalogueoflife.*',
+    vhost    => 'webservice.catalogueoflife.*',
     proxy    => 'http://46_149_20_81/webservices'
   }
 
