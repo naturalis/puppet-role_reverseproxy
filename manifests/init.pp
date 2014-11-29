@@ -52,7 +52,7 @@ class role_reverseproxy {
   nginx::resource::upstream {'46_149_29_25' :  members => ['46.149.29.25:80'], }
 
   nginx::resource::vhost {'www.catalogueoflife.* catalogueoflife.*': proxy    => 'http://134_213_57_40', }
-  nginx::resource::vhost {'webservices.catalogueoflife.*' : proxy =>'http://46_149_20_81' }
+  nginx::resource::vhost {'webservice.catalogueoflife.*' : proxy =>'http://46_149_20_81' }
 
   nginx::resource::location{ '46_149_29_25_testcol':
     location => '/testcol',
@@ -110,18 +110,18 @@ class role_reverseproxy {
 
   nginx::resource::location{ 'webservices_46_149_28_153_annual-checklist':
     location => '/annual-checklist',
-    vhost    => 'webservices.catalogueoflife.*',
+    vhost    => 'webservice.catalogueoflife.*',
     proxy    => 'http://46_149_28_153/annual-checklist'
   }
 
   nginx::resource::location{ 'webservices_46_149_20_81_col':
     location => '/col',
-    vhost    => 'webservices.catalogueoflife.*',
+    vhost    => 'webservice.catalogueoflife.*',
     proxy    => 'http://46_149_20_81/col'
   }
 
   nginx::resource::location{ 'webservices_46_149_20_81_webservices':
-    location => '/webservices',
+    location => '/webservice',
     vhost    => 'webservices.catalogueoflife.*',
     proxy    => 'http://46_149_20_81/webservices'
   }
