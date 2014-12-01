@@ -213,9 +213,9 @@ class role_reverseproxy {
   nginx::resource::vhost { 'nederlandsesoorten.nl www.nederlandsesoorten.nl': proxy => 'http://162_13_138_110', }
 
   nginx::resource::location{ '162_13_138_109_linneaus_ng':
-    location => '/linneaus_ng',
+    location => '/linnaeus_ng',
     vhost    => 'nederlandsesoorten.nl www.nederlandsesoorten.nl',
-    proxy    => 'http://162_13_138_109/linneaus_ng'
+    proxy    => 'http://162_13_138_109/linnaeus_ng'
   }
 
   # nginx::resource::location{ '46_149_28_153_DCA_Export':
