@@ -218,11 +218,11 @@ class role_reverseproxy {
     proxy    => 'http://162_13_138_109/linnaeus_ng'
   }
 
-  # nginx::resource::location{ '46_149_28_153_DCA_Export':
-  #   location => '/annual-checklist/',
-  #   vhost    => 'www.catalogueoflife.* catalogueoflife.*',
-  #   proxy    => 'http://46_149_20_81/DCA_Export'
-  # }
+
+  ### API BIODIVERSITYDATA
+  nginx::resource::upstream { '10_42_1_192': members => ['10.42.1.192:80'], }
+  nginx::resource::vhost { 'api.biodiversitydata.nl': proxy => 'http://10_42_1_192', }
+
 
 
 
