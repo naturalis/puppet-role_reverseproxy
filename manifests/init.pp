@@ -49,27 +49,27 @@ class role_reverseproxy {
   nginx::resource::upstream {'134_213_57_40':  members => ['134.213.57.40:80'], }
   nginx::resource::upstream {'46_149_28_153':  members => ['46.149.28.153:80'], }
   nginx::resource::upstream {'46_149_20_81' :  members => ['46.149.20.81:80'], }
-  nginx::resource::upstream {'46_149_29_25' :  members => ['46.149.29.25:80'], }
+  nginx::resource::upstream {'134_213_57_57' :  members => ['134.213.57.57:80'], }
 
   nginx::resource::vhost {'www.catalogueoflife.* catalogueoflife.*': proxy    => 'http://134_213_57_40', }
   nginx::resource::vhost {'webservice.catalogueoflife.*' : proxy =>'http://46_149_20_81' }
 
-  nginx::resource::location{ '46_149_29_25_testcol':
+  nginx::resource::location{ '134_213_57_57_testcol':
     location => '/testcol',
     vhost    => 'www.catalogueoflife.* catalogueoflife.*',
-    proxy    => 'http://46_149_29_25/testcol'
+    proxy    => 'http://134_213_57_57/testcol'
   }
 
-  nginx::resource::location{ '46_149_29_25_piping':
+  nginx::resource::location{ '134_213_57_57_piping':
     location => '/piping',
     vhost    => 'www.catalogueoflife.* catalogueoflife.*',
-    proxy    => 'http://46_149_29_25/piping'
+    proxy    => 'http://134_213_57_57/piping'
   }
 
-  nginx::resource::location{ '46_149_29_25_tree_estiamtes':
+  nginx::resource::location{ '134_213_57_57_tree_estiamtes':
     location => '/tree_estimates',
     vhost    => 'www.catalogueoflife.* catalogueoflife.*',
-    proxy    => 'http://46_149_29_25/tree_estimates'
+    proxy    => 'http://134_213_57_57/tree_estimates'
   }
 
   nginx::resource::location{ '46_149_20_81_DCA_Export':
