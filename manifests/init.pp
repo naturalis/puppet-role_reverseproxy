@@ -216,13 +216,16 @@ class role_reverseproxy {
 
   ### NEDERLANDSESOORTEN
   nginx::resource::upstream { '162_13_138_110': members => ['162.13.138.110:80'], }
-  nginx::resource::upstream { '162_13_138_109': members => ['162.13.138.109:80'], }
+  #nginx::resource::upstream { '162_13_138_109': members => ['162.13.138.109:80'], }
+  nginx::resource::upstream { '134_213_166_80': members => ['134.213.166.80:80'], }
+
   nginx::resource::vhost { 'nederlandsesoorten.nl www.nederlandsesoorten.nl soortenregister.nl www.soortenregister.nl': proxy => 'http://162_13_138_110', }
 
-  nginx::resource::location{ '162_13_138_109_linneaus_ng':
+  nginx::resource::location{ '134_213_166_80_linneaus_ng':
     location => '/linnaeus_ng',
     vhost    => 'nederlandsesoorten.nl www.nederlandsesoorten.nl soortenregister.nl www.soortenregister.nl',
-    proxy    => 'http://162_13_138_109/linnaeus_ng'
+    #proxy    => 'http://162_13_138_109/linnaeus_ng'
+    proxy    => 'http://134_213_166_80/linnaeus_ng'
   }
 
 
