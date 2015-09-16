@@ -232,6 +232,7 @@ class role_reverseproxy {
   ### API BIODIVERSITYDATA
   nginx::resource::upstream { '10_42_1_192': members => ['10.42.1.192:80'], }
   nginx::resource::vhost { 'api.biodiversitydata.nl': proxy => 'http://10_42_1_192', }
+  nginx::resource::vhost { 'data.biodiversitydata.nl': proxy => 'http://10_42_1_192', }
 
 
 
